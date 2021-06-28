@@ -1,0 +1,18 @@
+{% extends 'base.html '%}
+
+{% block content %}
+{{ super() }}
+
+<br>
+<form action="/delete_post" method="post" class="form_new_post">
+	<label>Please, enter the ID of the poost you want to delete:</label>
+	<br>
+	<input type="text" name="id_post_for_delete" value="" required="">
+		<p><input type="submit" value="SUBMIT"></p>
+</form>
+
+{% for cat, msg in get_flashed_messages(True) %}
+	<div class='flash {{cat}}'>{{msg}}</div>
+{% endfor %}
+
+{% endblock %}

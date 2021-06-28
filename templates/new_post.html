@@ -1,0 +1,20 @@
+{% extends 'base.html '%}
+
+{% block content %}
+{{ super() }}
+<p>Please, enter the new post</p>
+<br>
+<form action="/new_post" method="post" class="form_new_post">
+	<p><label>Title:</label><br>
+	<input type="text" name="new_post_title" value="" required=""</p>
+
+	<p><label>Your post here:</label></p>
+	<p><textarea name="new_post_description" cols=40 rows=7 required=""></textarea></p>
+	<p><input type="submit" value="SUBMIT"></p>
+</form>
+
+{% for cat, msg in get_flashed_messages(True) %}
+	<div class='flash {{cat}}'>{{msg}}</div>
+{% endfor %}
+
+{% endblock %}

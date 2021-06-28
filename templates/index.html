@@ -1,0 +1,14 @@
+{% extends 'base.html '%}
+
+{% block content %}
+{{ super() }}
+
+
+{% for p in all_posts %}
+<strong>Title:</strong>{{ p[1] }} <br>
+<strong>Description:</strong>{{ p[2] }} <br>
+<i>id: {{ p[0] }} </i><br>
+<i>Time: {{ p[3] }} </i><br><br>
+{% endfor %}
+
+{% endblock %}

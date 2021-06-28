@@ -1,0 +1,27 @@
+{% extends 'base.html '%}
+
+{% block content %}
+{{ super() }}
+
+<br>
+<form action="/edit_post" method="post" class="form_new_post">
+	<label>Please, enter the ID of the poost you want to edit:</label>
+	<br>
+	<input type="text" name="id_post_for_edit" value="" required="">
+	<br>
+	<br>
+	<br>
+	<label>New title:</label>
+	<br>
+	<input type="text" name="edit_post_title" value="" required="">
+	<br>
+	<p><label>New description here:</label></p>
+	<p><textarea name="edit_post_description" cols=40 rows=7 required=""></textarea></p>
+	<p><input type="submit" value="SUBMIT"></p>
+</form>
+
+{% for cat, msg in get_flashed_messages(True) %}
+	<div class='flash {{cat}}'>{{msg}}</div>
+{% endfor %}
+
+{% endblock %}
