@@ -2,3 +2,4 @@ venv
 databases
 .idea
 __pycache__
+log*.log
