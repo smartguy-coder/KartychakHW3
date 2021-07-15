@@ -1,0 +1,34 @@
+# version of the docker
+version: "3.3"
+
+
+services:
+
+# first service
+    app:
+
+        # define the image which we are going to use – here we say, that we want to use image was built from Dockerfile in the root
+        build: .
+
+        # define ports
+#        ports:
+#            # here we say that we can open our server only from local machine
+#            - "127.0.0.1:8000:8000"
+
+        volumes:
+            - ./:/code
+#        expose:
+#            - 8000
+
+
+# second service
+    nginx:
+        # image from dockerhub
+        build:
+            context: .
+            dockerfile: nginx/Dockerfile
+        ports:
+            - "127.0.0.1:80:80"
+        depends_on:
+            - app
+

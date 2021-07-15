@@ -1,17 +1,21 @@
 FROM python:3.8
 
-# создаем рабочую директория с произвольным названием (docker в папке var создаст эту папку, и в ней создаст свой проект (с новым линуксом….)
+# here we create working directory with any name (docker in folder var will create (somewhere)this folder,
+# and inside it will create docker-project (with new linux, etc….)
 WORKDIR /code
 
-# копируем наш проект с рабочего каталога в папку image докера (выше мы ее назвали code)
+
+# copy our project from working directory (where we created our flask project) in docker image (we named it 'code')
 COPY . .
 
-# устанавливаем все необходимые пакеты
+# we have to install all packages we need
 RUN pip install -r requirements.txt
 
-# пробрасываем порт
-EXPOSE 5000
-# для flask по дефолту 5000
+# define port (we don't need it using Docker-compose)
+#EXPOSE 5000
+#  flask default port 5000
 
-# запускаем сервер
-CMD ["flask", "run", "-h", "0.0.0.0", "-p", "80"]
+ENV FLASK_ENV=development
+
+# run our server
+CMD ["flask", "run", "-h", "0.0.0.0", "-p", "8000"]
