@@ -16,6 +16,12 @@ menu = [{'name': "All posts", "url": "index"},
         {'name': "Delete post", 'url': 'delete_post'},]
 
 
+# 404 error leads us to the main page
+@app.errorhandler(404)
+def handle_bad_request(e):
+    all_posts = database_module.select_all_posts()
+    return render_template("index.html", title="All posts", all_posts=all_posts, menu=menu)
+
 @app.route("/index")
 @app.route("/")
 def main_page_all_posts():
