@@ -6,6 +6,8 @@ import os
 # main functions for web develop========================================================================================
 
 
+
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 
