@@ -65,9 +65,9 @@ def edit_post_page():
 
         title = request.form['edit_post_title']
         description = request.form['edit_post_description']
-        database_module.edit_post(identificator, title, description)
+        database_module.edit_post(identifier, title, description)
 
-        flash(f"Yoy have edited post", category='add_post')
+        flash(f"You have edited post", category='add_post')
 
     return render_template("edit_post.html",  menu=menu)
 
