@@ -3,12 +3,12 @@ name: test github actions
 
 # we define on which actions github must check our code
 on:
-  # if we push any changes on github when branch = master or develop_test
+  # if we push any changes on github when branch = master or test_github_actions
   push:
-    branches: [ master, develop_test ]
+    branches: [ master, test_github_actions ]
   # we want also check any pull_reguest on these branches-ignore:
   pull_request:
-    branches: [ master, develop_test ]
+    branches: [ master, test_github_actions]
 
 # now we define how we check our code, we must do a few jobs
 jobs:
